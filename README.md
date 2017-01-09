@@ -1,19 +1,14 @@
-# Prettify JSON
+# Функционал программы
+Данная программа выводит в консоль содержимое файлов формата JSON в удобном формате (pretty print)
 
-[TODO. There will be project description]
+# Требования
+Для работы с программой требуется наличие файла в формате JSON
 
-# Quickstart
+# Начало работы
+Запустите скрипт
 
-[TODO]
-
-Example of script launch on Linux, Python 3.5:
-
-```#!bash
-
-$ python pprint_json.py <path to file>
-# TODO add output example
-
-```
+**Пример:**
+`python3.5 pprint_json.py`
 
 # Project Goals
 
