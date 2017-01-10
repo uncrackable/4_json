@@ -1,26 +1,23 @@
 import json
-
+import os
+import argparse
 
 def load_data(filepath):
-    with open(filepath,'r',encoding='utf-8') as json_to_parse:
-        return json.load(json_to_parse)
+    if not os.path.exists(filepath):
+        return None
+    with open(filepath,'r',encoding='utf-8') as json_file:
+        return json.load(json_file)
 
 
 
 def pretty_print_json(data):
-    print (json.dumps(data,sort_keys=True,indent=4,ensure_ascii=False))
+    print (json.dumps(data,sort_keys=True,indent=4,
+           ensure_ascii=False))
 
 
 if __name__ == '__main__':
-    while True:
-        filepath = input('Enter filepath for json file : ')
-        if not filepath:
-            print('Try again!')
-        else:
-            try:
-                pretty_print_json(load_data(filepath))
-                break
-            except FileNotFoundError as e:
-                print("Try better : %s" % (e.args[1]))
-
-
+    parser = argparse.ArgumentParser(description='...')
+    parser.add_argument('path', help='Enter filepath to your JSON')
+    arg = parser.parse_args()
+    json_content = load_data(arg.path)
+pretty_print_json(json_content)
