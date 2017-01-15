@@ -5,7 +5,7 @@ import argparse
 
 def load_data(filepath):
     if not os.path.exists(filepath):
-        return 'No such file in directory'
+        return None
     with open(filepath, 'r', encoding='utf-8') as json_file:
         return json.load(json_file)
 
